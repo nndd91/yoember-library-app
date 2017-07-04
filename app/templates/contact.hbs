@@ -1,28 +1,36 @@
 <div class="jumbotron text-center">
   <h1>Contact</h1>
   <br />
-  <p>Contact us throught this form right here</p>
 
-  <div class="form-horizontal form-group form-group-lg row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
-      {{input type="email" value=emailAddress class="form-control" placeholder="Please type your email address." autofocus="autofocus"}}
-    </div>
 
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
-      {{textarea value=message class="form-control" placeholder="Please enter your message (At least 5 characters.)" rows="7"}}
-    </div>
-
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-4 col-sm-4 col-md-3">
-      <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'sendMessage'}}>
-        Send
-      </button>
-    </div>
-  </div>
 
   {{#if responseMessage}}
     <div class="alert alert-success">
-      {{responseMessage}}
+      <p>Thank you. We have saved your feedack with the following details:</p>
+      <p>Email: {{model.emailAddress}}</p>
+      <p>Message: {{model.messageContent}}</p>
     </div>
+
+  {{else}}
+    <p>Contact us throught this form right here</p>
+
+    <div class="form-horizontal form-group form-group-lg row {{if model.emailValid 'has-success'}}">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+        {{input type="email" value=model.emailAddress class="form-control" placeholder="Please type your email address." autofocus="autofocus"}}
+      </div>
+
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 {{if model.lengthMoreThanSeven 'has-success'}}">
+        {{textarea value=model.messageContent class="form-control" placeholder="Please enter your message (At least 5 characters.)" rows="7"}}
+      </div>
+
+      <div class="col-xs-10 col-xs-offset-1 col-sm-offset-4 col-sm-4 col-md-3">
+        <button class="btn btn-primary btn-lg btn-block" disabled={{model.isDisabled}} {{action 'sendMessage' model}}>
+          Send
+        </button>
+      </div>
+    </div>
+
+
   {{/if}}
 
 </div>
