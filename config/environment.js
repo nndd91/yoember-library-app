@@ -8,12 +8,12 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     firebase: {
-      apiKey: "AIzaSyBdJIGHE3uDSfk28Y3EjcxM8wb9axh5v6E",
-      authDomain: "ember-libary-ac.firebaseapp.com",
-      databaseURL: "https://ember-libary-ac.firebaseio.com",
-      projectId: "ember-libary-ac",
+      apiKey: "AIzaSyB4q33G1vc65pHdsIrwo1AYupvtt2sg8p4",
+      authDomain: "library-app-ember-1832a.firebaseapp.com",
+      databaseURL: "https://library-app-ember-1832a.firebaseio.com",
+      projectId: "library-app-ember-1832a",
       storageBucket: "",
-      messagingSenderId: "357440493250"
+      messagingSenderId: "525390041919"
     },
 
     // if using ember-cli-content-security-policy
