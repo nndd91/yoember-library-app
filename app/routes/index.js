@@ -1,15 +1,13 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
 export default Ember.Route.extend({
   model () {
-    return this.store.createRecord('contact')
+    return this.store.createRecord('invitation')
   },
 
-  emailAddress: '',
-
   actions: {
-    sendMessage (newContactMessage) {
-      newContactMessage.save().then(() => {
+    saveInvitation (newInvitation) {
+      newInvitation.save().then(() => {
         this.controller.set('responseMessage', true)
       })
     },
@@ -19,4 +17,5 @@ export default Ember.Route.extend({
       this.controller.set('responseMessage', false)
     }
   }
-});
+
+})
